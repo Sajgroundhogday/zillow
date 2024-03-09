@@ -14,12 +14,12 @@ contract RealEstate is ERC721URIStorage {
 
     }
 
-    function mint() public returns (uint) {
+    function mint(string memory tokenURI) public returns (uint) {
         _tokenIds.increment();
 
         uint newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
-        _setTokenURI(newItemId, tokenURI(newItemId));
+        _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
     }
